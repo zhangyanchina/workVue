@@ -1,0 +1,7 @@
+{
+    "user":"zs",
+    "password":123,
+    "code":200,
+    "router":["/home","/home/user","/home/right","/home/flag"],
+    "power":"超级管理员"
+}

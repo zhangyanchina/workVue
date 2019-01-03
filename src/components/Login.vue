@@ -5,14 +5,18 @@
     </div>
     <div class="login_box">
       <h3 class="box_title">用户登录</h3>
-      <el-form :model="userForm" :rules="userRules" ref="userForm">
+      <el-form :model="userForm" :rules="userRules" ref="userFrom">
         <el-form-item prop="username">
-          <el-input type="text" :v-model="userForm.username" placeholder="用户名"></el-input>
+          <img src="../assets/images/user_w.png">
+          <el-input v-model="userForm.username" placeholder="用户名"></el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input type="password" :v-model="userForm.password" placeholder="密码"></el-input>
+          <img src="../assets/images/password_w.png">
+          <i class="el-icon-view look" @click="psw=!psw" :style="{color:psw? 'red':'#fff'}"></i>
+          <el-input v-model="userForm.password" placeholder="密码" :type="psw? 'text':'password'"></el-input>
         </el-form-item>
       </el-form>
+      <el-button type="primary" @click="login">登录</el-button>
     </div>
   </div>
 </template>
@@ -43,6 +47,7 @@ export default {
     background: url("../assets/images/whitecard.png") no-repeat 100% 100%;
     background-size: cover;
     margin-top: 12%;
+    position: relative;
     > .box_title {
       font-size: 24px;
       color: #fff;
@@ -50,53 +55,36 @@ export default {
       height: 70px;
       line-height: 70px;
     }
-    .box_input {
-      position: relative;
-      width: 75%;
-      margin: 14px auto;
-      top: 50px;
-      img {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        left: 17px;
-        z-index: 2;
+    > .el-form {
+      width: 76%;
+      margin: 0 auto;
+      margin-top: 50px;
+      > .el-form-item {
+        position: relative;
+        img {
+          position: absolute;
+          z-index: 2;
+          top: 50%;
+          transform: translateY(-50%);
+          left: 20px;
+        }
+        .look {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 2;
+          right: 10px;
+          cursor: pointer;
+        }
       }
     }
+    > .el-button {
+      width: 76%;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 30px;
+    }
   }
-}
-.el-form-item {
-  background: #072376;
-}
-.el-input__inner {
-  width: 100%;
-  height: 43px;
-  background: #072376;
-  border: 1px solid #0177dc;
-  border-radius: 6px;
-  padding-left: 50px;
-  color: #fff;
-}
-.el-input__inner:focus {
-  border: 1px solid #fff;
-}
-::-webkit-input-placeholder {
-  /* WebKit, Blink, Edge */
-  color: #fff;
-}
-
-:-moz-placeholder {
-  /* Mozilla Firefox 4 to 18 */
-  color: #fff;
-}
-
-::-moz-placeholder {
-  /* Mozilla Firefox 19+ */
-  color: #fff;
-}
-
-:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: #fff;
 }
 </style>
