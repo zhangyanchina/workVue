@@ -1,0 +1,13 @@
+{
+  "code": "200",
+  "menuList": [{
+    "id": "release",
+    "title": "新闻发布"
+  }, {
+    "id": "list",
+    "title": "新闻列表"
+  }, {
+    "id": "edit",
+    "title": "新闻编辑"
+  }]
+}
