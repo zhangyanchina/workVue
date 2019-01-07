@@ -2,6 +2,7 @@
   <div class="home_container">
     <el-container style="height:100%">
       <el-header style="height:64px">
+        <div class="box_title"><router-link to="/home/welcome">管理系統</router-link></div>
         <div class="user_box" @mouseenter="enterFlag=true" @mouseleave="enterFlag=false">
           <img src="../../assets/images/head.png">
           <el-card class="box-card" v-show="enterFlag" shadow="hover">
@@ -19,6 +20,8 @@
             background-color="#545c64"
             text-color="#fff"
             active-text-color="#ffd04b"
+            @select="handleSelect"
+            :default-active="routerName"
           >
             <el-menu-item :index="items.id" v-for="(items,index) in menuList" :key="items.id">
               <i :class="listIcon[index]"></i>
@@ -46,6 +49,18 @@ export default {
   .el-header {
     background: url("../../assets/images/nav.png") no-repeat;
     position: relative;
+    > .box_title {
+      position: absolute;
+      left: 2%;
+      top: 0;
+      height: 64px;
+      line-height: 64px;
+      font-size: 24px;
+      cursor: pointer;
+      a {
+        color: #fff;
+      }
+    }
     > .user_box {
       position: absolute;
       right: 10%;
@@ -57,6 +72,7 @@ export default {
         top: 62px;
         left: -93%;
         width: 200px;
+        z-index: 3;
         .items {
           cursor: default;
           // 文字不能被选中

@@ -48,6 +48,10 @@
     <el-button @click="resetForm('ruleForm')">重置</el-button>
   </el-form-item>
 </el-form>
+<el-rate
+  v-model="startR"
+  show-text allow-half :texts=text11>
+</el-rate>
     </div>
 </template>
 <script>

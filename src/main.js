@@ -1,3 +1,4 @@
+import 'babel-polyfill'
 import Vue from 'vue'
 import App from './App'
 import router from './router'
@@ -7,6 +8,9 @@ import ElementUI from 'element-ui';
 import axios from 'axios'
 import 'element-ui/lib/theme-chalk/index.css';
 import Vuex from 'vuex'
+if (!window.Promise) {
+  window.Promise = Promise;
+}
 
 // 注册vuex中间件
 Vue.use(Vuex)

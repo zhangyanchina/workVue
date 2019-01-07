@@ -5,7 +5,8 @@ export default {
             username:'', // 用户名称
             power:'', // 用户权限
             menuList:[], // 左侧菜单列表
-            listIcon:['el-icon-location','el-icon-menu','el-icon-edit']
+            listIcon:['el-icon-location','el-icon-menu','el-icon-edit'],
+            routerName:sessionStorage.getItem('routerNames')
         }
     },
     created() {
@@ -25,6 +26,10 @@ export default {
             const {data : list} = await this.$http.get('/static/mock/menu.json')
             if(list.code !== '200') return this.$message.error('信息列表获取失败，请联系管理员')
             this.menuList = list.menuList            
+        },
+        handleSelect(index,path) {
+            //index 表示路由名称
+            sessionStorage.setItem('routerNames',index)            
         }
     },
 }
