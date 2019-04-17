@@ -1,7 +1,7 @@
 <template>
   <div class="home_container">
     <el-container style="height:100%">
-      <el-header style="height:64px">
+      <el-header style="height:64px" id="home_box">
         <div class="box_title"><router-link to="/home/welcome">管理系統</router-link></div>
         <div class="user_box" @mouseenter="enterFlag=true" @mouseleave="enterFlag=false">
           <img src="../../assets/images/head.png">

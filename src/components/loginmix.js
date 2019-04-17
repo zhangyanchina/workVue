@@ -49,12 +49,16 @@ export default {
         
         this.$message.success('登录成功')
 
+        
         sessionStorage.setItem('username', result.user)
         sessionStorage.setItem('password', this.userForm.password)
         sessionStorage.setItem('power',result.power)
-
+        document.cookie = 'name=123'
         this.$router.push('/home')
       });
     }
+  },
+  mounted() {
+    this.$store.state.username = 1;
   },
 }

@@ -6,13 +6,15 @@ export default {
             power:'', // 用户权限
             menuList:[], // 左侧菜单列表
             listIcon:['el-icon-location','el-icon-menu','el-icon-edit'],
-            routerName:sessionStorage.getItem('routerNames')
+            routerName:sessionStorage.getItem('routerNames'),
+            vux:''
         }
     },
     created() {
         this.username = sessionStorage.getItem('username')
         this.power = sessionStorage.getItem('power')
         this.initList()
+        this.vux = this.$store.state.username
     },
     methods: {
         Logout() {
@@ -32,4 +34,18 @@ export default {
             sessionStorage.setItem('routerNames',index)            
         }
     },
+    mounted() {
+        const ele = document.getElementById('home_box');        
+        console.log(ele);
+        console.log(this.$store.state.username,this.sasd);
+        
+        
+        
+    },   
+    computed: {
+       sasd() {
+           return this.$store.state.username+1;
+       }
+        
+    },                                               
 }
